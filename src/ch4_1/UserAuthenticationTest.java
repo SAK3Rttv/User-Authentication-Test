@@ -14,6 +14,10 @@ public class UserAuthenticationTest {
 		auth = new UserAuthentication();
 	}
 	
+	/**
+	 * 
+	 * @return list of dummy login data
+	 */
 	@DataProvider (name="loginData")
 	public Object[][] provideLoginData() {
 		// username, password, expectedResult
@@ -32,6 +36,14 @@ public class UserAuthenticationTest {
 		};
 	}
 	
+	
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @param expectedResult
+	 * Assert if actual result as expected Result
+	 */
 	@Test (dataProvider="loginData")
 	public void loginTest(String username,String password, boolean expectedResult) {
 		boolean actualResult = auth.authenticate(username, password);
